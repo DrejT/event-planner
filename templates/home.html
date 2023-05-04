@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 
-
 {% block content %}
 <h3>So, What are we planning</h3>
 <form method="GET" action="">{{ crsf_token }}
@@ -13,9 +12,11 @@
          <h3>Search results</h3>
          <ul>
             {% for result in search_results %}
+            <div class="post-entry">
                 <li>
                 <h5><a href="{% url 'detailpost' result.pk %}">{{ result.title }}</a></h4>
                 <p>{{ result.description }}</p></li>
+                </div>
                  {% endfor %}
              </ul>{% elif search_results.count < 0 %}
                <h4>No results found.</h4>
